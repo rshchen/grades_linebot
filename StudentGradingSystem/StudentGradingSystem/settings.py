@@ -17,16 +17,6 @@ from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# 靜態文件的 URL 前綴
-STATIC_URL = '/static/'
-
-# 靜態文件的目錄
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # 你的靜態文件目錄
-]
-
-# 靜態文件的收集目錄（用於生產環境）
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -42,18 +32,18 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'kghsgrades.blesstw.com',  # 添加你的域名
     'samplescores.blesstw.com',
-    'ccc2-219-69-68-4.ngrok-free.app', #ngrok測試用
+    'c275-219-69-66-52.ngrok-free.app', #ngrok測試用
 ]
 
 
 CSRF_TRUSTED_ORIGINS = [
     'https://kghsgrades.blesstw.com',
     'https://samplescores.blesstw.com',
-    'https://ccc2-219-69-68-4.ngrok-free.app', #ngrok測試用
+    'https://c275-219-69-66-52.ngrok-free.app', #ngrok測試用
 ]
 
 # 網站的基 URL
-SITE_URL = 'https://ccc2-219-69-68-4.ngrok-free.app'
+SITE_URL = 'https://c275-219-69-66-52.ngrok-free.app'
 
 
 # Application definition
@@ -169,7 +159,17 @@ LOCALE_PATHS = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+
+# 靜態文件的 URL 前綴
+STATIC_URL = '/static/'
+
+# 靜態文件的目錄
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # 你的靜態文件目錄
+]
+
+# 靜態文件的收集目錄（用於生產環境）
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

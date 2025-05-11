@@ -614,6 +614,8 @@ from django.conf import settings
 from django.utils import timezone
 from datetime import timedelta
 
+from django.views.decorators.http import require_POST
+
 # 使用 decouple 讀取環境變數
 line_bot_api = LineBotApi(config('LINE_CHANNEL_ACCESS_TOKEN'))
 handler = WebhookHandler(config('LINE_CHANNEL_SECRET'))
@@ -648,6 +650,7 @@ def save_otp(user_id, email, otp):
 
 
 # 處理從 LINE Bot 發來的 Webhook 請求
+@require_POST
 @csrf_exempt
 def line_webhook(request):
     if request.method == 'POST':
