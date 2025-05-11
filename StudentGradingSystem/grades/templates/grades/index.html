@@ -1,0 +1,120 @@
+<!-- index.html -->
+<!--首頁-->
+
+{% load socialaccount %} <!-- 確保加載了這個標籤庫 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- 加入 Bootstrap 的 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* 新增一個導航欄，用於放置登入與登出按鈕 */
+        .navbar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+        }
+
+        .navbar .btn {
+            margin-left: 10px;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-group .btn {
+            margin: 10px;
+            font-size: 24px;
+            padding: 15px 30px;
+        }
+
+        footer {
+            background-color: #ccc;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+        }
+
+        /* 設定提示方框樣式 */
+        .alert-box {
+            display: flex;
+            align-items: center;
+            background-color: #f0f8ff;
+            border: 1px solid #b0c4de;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .alert-text {
+            flex: 1;
+            font-weight: bold;
+            color: #1e90ff;
+            margin-right: 10px;
+        }
+
+        .qr-image {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 將登入與登出按鈕放在右上角 -->
+    <div class="navbar">
+        <!-- 登入按鈕 -->
+        <a href="{% provider_login_url 'google' %}" class="btn btn-danger">登入</a>
+        <!-- 登出按鈕 -->
+        <a href="{% url 'account_logout' %}" class="btn btn-secondary">登出</a>
+    </div>
+
+    <div class="container text-center mt-5">
+        <h1 class="mb-4">歡迎來到成績登錄查詢系統</h1>
+        <h3 class="mb-4">請以google帳號登入系統，並選擇您的角色</h3>
+        <div class="btn-group">
+            <a href="{% url 'manager' %}" class="btn btn-primary">管理員</a>
+            <a href="{% url 'teacher' %}" class="btn btn-success">老師</a>
+            <a href="{% url 'student' %}" class="btn btn-info">學生</a>
+        </div>
+
+        <!-- 新增提示方框 -->
+        <div class="alert-box mt-4">
+            <div class="alert-text">學生們！這裡有成績查詢 Line Bot，使用起來更方便喔！</div>
+            <img src="https://qr-official.line.me/gs/M_712wvamb_GW.png?oat_content=qr" alt="Line Bot QR Code" class="qr-image">
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Rui Xiang Chen 保留所有權利</p>
+    </footer>
+
+    <!-- 加入 Bootstrap 的 JavaScript 和 jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!-- grades/class_management.html -->
+{% extends 'grades/base_manager.html' %}
+
+{% block title %}班級管理{% endblock %}
+
+{% block content %}
+    <h2>{{ message }}</h2>
+    {% if is_manager %}
+        <div>
+            <h3>動作（警告：使用批次輸入，會刪除已存在的所有班級和相關資料）</h3>
+            <form method="POST" id="action-form">
+                {% csrf_token %}
+                <label for="action">選擇動作:</label>
+                <select id="action" name="action" onchange="toggleInputs(this.value)">
+                    <option value="">--請選擇--</option>
+                    <option value="batch_input">批次輸入</option>
+                    <option value="add_class">新增班級</option>
+                    <option value="delete_class">刪除班級</option>
+                </select>
+                
+                <!-- 批次輸入班級名稱 -->
+                <div id="batch-input-container" style="display:none;">
+                    <label for="batch_classes">班級名稱:</label>
+                    <textarea id="batch_classes" name="batch_classes" rows="5" cols="30" placeholder="請輸入班級名稱，使用換行分隔"></textarea>
+                </div>
+
+                <!-- 新增班級 -->
+                <div id="add-class-container" style="display:none;">
+                    <label for="new_class">班級名稱:</label>
+                    <input type="text" id="new_class" name="new_class" placeholder="請輸入要新增的班級名稱">
+                </div>
+
+                <!-- 刪除班級 -->
+                <div id="delete-class-container" style="display:none;">
+                    <label for="delete_class">班級名稱:</label>
+                    <select id="delete_class" name="delete_class">
+                        {% for class in classes %}
+                            <option value="{{ class.name }}">{{ class.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <input type="submit" value="提交">
+            </form>
+        </div>
+
+        <!-- 新增顯示已存在的班級的表格 -->
+        <h3>已存在的班級</h3>
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>班級名稱</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for class in classes %}
+                    <tr>
+                        <td>{{ class.name }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="1">沒有已存在的班級</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% else %}
+        <p>無法訪問班級管理頁面。</p>
+    {% endif %}
+
+<script>
+    function toggleInputs(value) {
+        // 隱藏所有輸入區域
+        document.getElementById('batch-input-container').style.display = 'none';
+        document.getElementById('add-class-container').style.display = 'none';
+        document.getElementById('delete-class-container').style.display = 'none';
+
+        // 根據選擇顯示相應的輸入區域
+        if (value === 'batch_input') {
+            document.getElementById('batch-input-container').style.display = 'block';
+        } else if (value === 'add_class') {
+            document.getElementById('add-class-container').style.display = 'block';
+        } else if (value === 'delete_class') {
+            document.getElementById('delete-class-container').style.display = 'block';
+        }
+    }
+</script>
+{% endblock %}
+

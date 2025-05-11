@@ -1,0 +1,12 @@
+<!-- templates/grades/manager.html -->
+<!--管理員介面-->
+{% extends 'grades/base_manager.html' %}
+
+{% block title %}管理員頁面{% endblock %}
+
+{% block content %}
+    <h2>{{ message }}</h2>
+    {% if is_manager %}
+        <p>請從左邊選擇一個管理項目進行操作。</p>
+    {% endif %}
+{% endblock %}

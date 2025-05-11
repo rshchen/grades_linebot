@@ -1,0 +1,27 @@
+<!--編輯課程名稱-->
+{% extends 'grades/base_teacher.html' %}
+
+{% block title %}編輯課程名稱{% endblock %}
+
+{% block content %}
+
+    <h2>編輯課程名稱: {{ course.name }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="id_course_name">課程名稱:</label>
+        <input type="text" id="id_course_name" name="course_name" value="{{ course.name }}" required>
+        <br><br>
+        <input type="submit" value="更新課程名稱">
+    </form>
+<br>
+{% if messages %}
+    <div>
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endblock %}
+

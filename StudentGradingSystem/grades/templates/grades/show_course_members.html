@@ -1,0 +1,35 @@
+<!--課程學生名單-->
+{% extends 'grades/base_teacher.html' %}
+
+{% block title %}課程學生名單{% endblock %}
+
+{% block content %}
+
+    <h2>課程學生名單：{{ course.name }}</h2>
+    
+    {% if students %}
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>座號</th>
+                    <th>姓名</th>
+                    <th>班級</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                    <tr>
+                        <td>{{ student.seat_number }}</td>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.class_name }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>目前尚無課程成員。</p>
+    {% endif %}
+    
+    <a href="{% url 'course_list' %}" class="btn btn-primary">返回課程列表</a>
+
+{% endblock %}

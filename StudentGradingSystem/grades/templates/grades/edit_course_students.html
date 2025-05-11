@@ -1,0 +1,100 @@
+<!--編輯課程學生名單-->
+{% extends 'grades/base_teacher.html' %}
+
+{% block title %}編輯課程學生名單{% endblock %}
+
+{% block content %}
+
+<h2>編輯課程學生名單：{{ course.name }}</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <!-- 篩選班級 -->
+    <label for="id_class_names">選擇班級以篩選學生:</label>
+    <select id="class-filter" class="form-select mb-3">
+        <option value="">----</option>
+        <option value="all">全部班級</option>
+        {% for class_name in students_by_class.keys %}
+            <option value="{{ class_name }}">{{ class_name }}</option>
+        {% endfor %}
+    </select>
+
+    <!-- 學生選擇 -->
+    <div id="students-checkboxes">
+        {% for class_name, students in students_by_class.items %}
+            <table class="table table-bordered student-group table-striped" data-class="{{ class_name }}" style="margin-bottom: 20px; display: none;">
+                <thead>
+                    <tr>
+                        <th colspan="2">{{ class_name }}</th>
+                        <th>
+                            <input type="checkbox" class="select-all" data-class="{{ class_name }}" /> 全選
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                        <tr>
+                            <td>{{ student.seat_number }}</td>
+                            <td>{{ student.name }}</td>
+                            <td>
+                                <input type="checkbox" class="student-checkbox" name="students" value="{{ student.id }}"
+                                    {% if student in course.students.all %}checked{% endif %}>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
+    </div>
+
+    <input type="submit" value="更新學生成員" class="btn btn-primary">
+</form>
+
+<!-- JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const classFilter = document.getElementById('class-filter');
+        const studentGroups = document.querySelectorAll('.student-group');
+
+        classFilter.addEventListener('change', function () {
+            const selectedClass = classFilter.value;
+
+            // 隱藏所有班級
+            studentGroups.forEach(group => group.style.display = 'none');
+
+            // 顯示選中的班級
+            if (selectedClass === "all") {
+                studentGroups.forEach(group => group.style.display = 'table');
+            } else if (selectedClass) {
+                const selectedGroup = document.querySelector(`.student-group[data-class="${selectedClass}"]`);
+                if (selectedGroup) {
+                    selectedGroup.style.display = 'table';
+                }
+            }
+        });
+
+        // 每個班級的全選功能
+        document.querySelectorAll('.select-all').forEach(selectAll => {
+            selectAll.addEventListener('change', function () {
+                const className = selectAll.getAttribute('data-class');
+                document.querySelectorAll(`.student-group[data-class="${className}"] .student-checkbox`)
+                    .forEach(checkbox => checkbox.checked = selectAll.checked);
+            });
+        });
+    });
+</script>
+
+<br>
+
+{% if messages %}
+    <div>
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% endblock %}

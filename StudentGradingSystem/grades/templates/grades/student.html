@@ -1,0 +1,94 @@
+<!--學生頁面-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學生頁面</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* 設定頁面為 flex 容器，讓內容區域和 footer 對齊 */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            flex: 1;
+        }
+
+        footer {
+            background-color: #ccc;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ message }}</h1>
+
+        <h2>選擇課程</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="course">課程：</label>
+                <select name="course" id="course" class="form-control">
+                    {% for course in courses %}
+                        <option value="{{ course.id }}">{{ course.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="grade_category">成績類型：</label>
+                <select name="grade_category" id="grade_category" class="form-control">
+                    <option value="homework" {% if grade_category == 'homework' %}selected{% endif %}>作業</option>
+                    <option value="exam" {% if grade_category == 'exam' %}selected{% endif %}>段考</option>
+                    <option value="quiz" {% if grade_category == 'quiz' %}selected{% endif %}>平時考</option>
+                    <option value="general performance" {% if grade_category == 'general performance' %}selected{% endif %}>平時成績</option>
+                    <option value="overall score" {% if grade_category == 'overall score' %}selected{% endif %}>總成績</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">查看成績項目</button>
+        </form>
+
+        {% if grade_items %}
+            <h3>成績項目</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>成績項目名稱</th>
+                        <th>類別</th>
+                        <th>成績</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for grade_item in grade_items %}
+                        <tr>
+                            <td>{{ grade_item.name }}</td>
+                            <td>{{ grade_item.category }}</td>
+                            <td>
+                                {{ grade_item.student_grade }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>目前尚無成績</p>
+        {% endif %}
+
+        <!-- 回到首頁按鈕 -->
+        <a href="{% url 'index' %}" class="btn btn-secondary mt-3">回到首頁</a>
+
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Rui Xiang Chen 保留所有權利</p>
+    </footer>
+</body>
+</html>

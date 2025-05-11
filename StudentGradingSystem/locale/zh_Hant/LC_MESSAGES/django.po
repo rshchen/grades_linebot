@@ -1,0 +1,1047 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-22 14:29+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+
+
+
+#: grades/templates/account/account_inactive.html:5
+#: grades/templates/account/account_inactive.html:9
+msgid "Account Inactive"
+msgstr ""
+
+#: grades/templates/account/account_inactive.html:12
+msgid "This account is inactive."
+msgstr ""
+
+#: grades/templates/account/base_reauthenticate.html:5
+#: grades/templates/account/base_reauthenticate.html:9
+msgid "Confirm Access"
+msgstr ""
+
+#: grades/templates/account/base_reauthenticate.html:12
+msgid "Please reauthenticate to safeguard your account."
+msgstr ""
+
+#: grades/templates/account/base_reauthenticate.html:19
+#: grades/templates/mfa/authenticate.html:37
+msgid "Alternative options"
+msgstr ""
+
+#: grades/templates/account/confirm_email_verification_code.html:5
+msgid "Email Verification"
+msgstr ""
+
+#: grades/templates/account/confirm_email_verification_code.html:9
+msgid "Enter Email Verification Code"
+msgstr ""
+
+#: grades/templates/account/confirm_email_verification_code.html:15
+#: grades/templates/account/confirm_login_code.html:15
+#, python-format
+msgid ""
+"We’ve sent a code to %(email_link)s. The code expires shortly, so please "
+"enter it soon."
+msgstr ""
+
+#: grades/templates/account/confirm_email_verification_code.html:27
+#: grades/templates/account/email_confirm.html:24
+#: grades/templates/account/reauthenticate.html:18
+#: grades/templates/mfa/reauthenticate.html:18
+msgid "Confirm"
+msgstr ""
+
+#: grades/templates/account/confirm_email_verification_code.html:31
+#: grades/templates/account/confirm_email_verification_code.html:35
+#: grades/templates/account/confirm_login_code.html:32
+#: grades/templates/mfa/authenticate.html:28
+#: grades/templates/mfa/authenticate.html:44
+#: grades/templates/mfa/webauthn/signup_form.html:26
+msgid "Cancel"
+msgstr ""
+
+#: grades/templates/account/confirm_login_code.html:5
+#: grades/templates/account/confirm_login_code.html:27
+#: grades/templates/account/login.html:5 grades/templates/account/login.html:9
+#: grades/templates/account/login.html:31
+#: grades/templates/account/request_login_code.html:5
+#: grades/templates/allauth/layouts/base.html:64
+#: grades/templates/mfa/authenticate.html:6
+#: grades/templates/mfa/authenticate.html:24
+#: grades/templates/socialaccount/login.html:5
+#: grades/templates/socialaccount/login_redirect.html:5
+msgid "Sign In"
+msgstr ""
+
+#: grades/templates/account/confirm_login_code.html:9
+msgid "Enter Sign-In Code"
+msgstr ""
+
+#: grades/templates/account/email.html:4 grades/templates/account/email.html:8
+msgid "Email Addresses"
+msgstr ""
+
+#: grades/templates/account/email.html:12
+msgid "The following email addresses are associated with your account:"
+msgstr ""
+
+#: grades/templates/account/email.html:25
+msgid "Verified"
+msgstr ""
+
+#: grades/templates/account/email.html:29
+msgid "Unverified"
+msgstr ""
+
+#: grades/templates/account/email.html:34
+msgid "Primary"
+msgstr ""
+
+#: grades/templates/account/email.html:44
+msgid "Make Primary"
+msgstr ""
+
+#: grades/templates/account/email.html:47
+#: grades/templates/account/email_change.html:37
+msgid "Re-send Verification"
+msgstr ""
+
+#: grades/templates/account/email.html:50
+#: grades/templates/mfa/webauthn/authenticator_confirm_delete.html:16
+#: grades/templates/mfa/webauthn/authenticator_list.html:60
+#: grades/templates/socialaccount/connections.html:40
+msgid "Remove"
+msgstr ""
+
+#: grades/templates/account/email.html:59
+msgid "Add Email Address"
+msgstr ""
+
+#: grades/templates/account/email.html:70
+msgid "Add Email"
+msgstr ""
+
+#: grades/templates/account/email.html:79
+msgid "Do you really want to remove the selected email address?"
+msgstr ""
+
+#: grades/templates/account/email/account_already_exists_message.txt:4
+#, python-format
+msgid ""
+"You are receiving this email because you or someone else tried to signup for "
+"an\n"
+"account using email address:\n"
+"\n"
+"%(email)s\n"
+"\n"
+"However, an account using that email address already exists.  In case you "
+"have\n"
+"forgotten about this, please use the password forgotten procedure to "
+"recover\n"
+"your account:\n"
+"\n"
+"%(password_reset_url)s"
+msgstr ""
+
+#: grades/templates/account/email/account_already_exists_subject.txt:3
+msgid "Account Already Exists"
+msgstr ""
+
+#: grades/templates/account/email/base_message.txt:1
+#, python-format
+msgid "Hello from %(site_name)s!"
+msgstr ""
+
+#: grades/templates/account/email/base_message.txt:5
+#, python-format
+msgid ""
+"Thank you for using %(site_name)s!\n"
+"%(site_domain)s"
+msgstr ""
+
+#: grades/templates/account/email/base_notification.txt:5
+msgid ""
+"You are receiving this mail because the following change was made to your "
+"account:"
+msgstr ""
+
+#: grades/templates/account/email/base_notification.txt:10
+#, python-format
+msgid ""
+"If you do not recognize this change then please take proper security "
+"precautions immediately. The change to your account originates from:\n"
+"\n"
+"- IP address: %(ip)s\n"
+"- Browser: %(user_agent)s\n"
+"- Date: %(timestamp)s"
+msgstr ""
+
+#: grades/templates/account/email/email_changed_message.txt:4
+#, python-format
+msgid "Your email has been changed from %(from_email)s to %(to_email)s."
+msgstr ""
+
+#: grades/templates/account/email/email_changed_subject.txt:3
+msgid "Email Changed"
+msgstr ""
+
+#: grades/templates/account/email/email_confirm_message.txt:4
+msgid "Your email has been confirmed."
+msgstr ""
+
+#: grades/templates/account/email/email_confirm_subject.txt:3
+msgid "Email Confirmation"
+msgstr ""
+
+#: grades/templates/account/email/email_confirmation_message.txt:5
+#, python-format
+msgid ""
+"You're receiving this email because user %(user_display)s has given your "
+"email address to register an account on %(site_domain)s."
+msgstr ""
+
+#: grades/templates/account/email/email_confirmation_message.txt:7
+msgid ""
+"Your email verification code is listed below. Please enter it in your open "
+"browser window."
+msgstr ""
+
+#: grades/templates/account/email/email_confirmation_message.txt:9
+#, python-format
+msgid "To confirm this is correct, go to %(activate_url)s"
+msgstr ""
+
+#: grades/templates/account/email/email_confirmation_subject.txt:3
+msgid "Please Confirm Your Email Address"
+msgstr ""
+
+#: grades/templates/account/email/email_deleted_message.txt:4
+#, python-format
+msgid "Email address %(deleted_email)s has been removed from your account."
+msgstr ""
+
+#: grades/templates/account/email/email_deleted_subject.txt:3
+msgid "Email Removed"
+msgstr ""
+
+#: grades/templates/account/email/login_code_message.txt:5
+msgid ""
+"Your sign-in code is listed below. Please enter it in your open browser "
+"window."
+msgstr ""
+
+#: grades/templates/account/email/login_code_message.txt:9
+#: grades/templates/account/email/unknown_account_message.txt:6
+msgid "This mail can be safely ignored if you did not initiate this action."
+msgstr ""
+
+#: grades/templates/account/email/login_code_subject.txt:3
+msgid "Sign-In Code"
+msgstr ""
+
+#: grades/templates/account/email/password_changed_message.txt:4
+msgid "Your password has been changed."
+msgstr ""
+
+#: grades/templates/account/email/password_changed_subject.txt:3
+msgid "Password Changed"
+msgstr ""
+
+#: grades/templates/account/email/password_reset_key_message.txt:4
+msgid ""
+"You're receiving this email because you or someone else has requested a "
+"password reset for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the "
+"link below to reset your password."
+msgstr ""
+
+#: grades/templates/account/email/password_reset_key_message.txt:9
+#, python-format
+msgid "In case you forgot, your username is %(username)s."
+msgstr ""
+
+#: grades/templates/account/email/password_reset_key_subject.txt:3
+msgid "Password Reset Email"
+msgstr ""
+
+#: grades/templates/account/email/password_reset_message.txt:4
+msgid "Your password has been reset."
+msgstr ""
+
+#: grades/templates/account/email/password_reset_subject.txt:3
+#: grades/templates/account/password_reset.html:4
+#: grades/templates/account/password_reset.html:8
+#: grades/templates/account/password_reset_done.html:6
+#: grades/templates/account/password_reset_done.html:10
+msgid "Password Reset"
+msgstr ""
+
+#: grades/templates/account/email/password_set_message.txt:4
+msgid "Your password has been set."
+msgstr ""
+
+#: grades/templates/account/email/password_set_subject.txt:3
+msgid "Password Set"
+msgstr ""
+
+#: grades/templates/account/email/unknown_account_message.txt:4
+#, python-format
+msgid ""
+"You are receiving this email because you, or someone else, tried to access "
+"an account with email %(email)s. However, we do not have any record of such "
+"an account in our database."
+msgstr ""
+
+#: grades/templates/account/email/unknown_account_message.txt:8
+msgid "If it was you, you can sign up for an account using the link below."
+msgstr ""
+
+#: grades/templates/account/email/unknown_account_subject.txt:3
+msgid "Unknown Account"
+msgstr ""
+
+#: grades/templates/account/email_change.html:5
+#: grades/templates/account/email_change.html:9
+msgid "Email Address"
+msgstr ""
+
+#: grades/templates/account/email_change.html:21
+#: grades/templates/account/email_change.html:29
+msgid "Current email"
+msgstr ""
+
+#: grades/templates/account/email_change.html:31
+msgid "Changing to"
+msgstr ""
+
+#: grades/templates/account/email_change.html:35
+msgid "Your email address is still pending verification."
+msgstr ""
+
+#: grades/templates/account/email_change.html:41
+msgid "Cancel Change"
+msgstr ""
+
+#: grades/templates/account/email_change.html:49
+msgid "Change to"
+msgstr ""
+
+#: grades/templates/account/email_change.html:55
+#: grades/templates/allauth/layouts/base.html:27
+msgid "Change Email"
+msgstr "修改電子郵件資料"
+
+#: grades/templates/account/email_confirm.html:6
+#: grades/templates/account/email_confirm.html:10
+msgid "Confirm Email Address"
+msgstr ""
+
+#: grades/templates/account/email_confirm.html:16
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
+"address for user %(user_display)s."
+msgstr ""
+
+#: grades/templates/account/email_confirm.html:30
+#: grades/templates/account/messages/email_confirmation_failed.txt:2
+#, python-format
+msgid ""
+"Unable to confirm %(email)s because it is already confirmed by a different "
+"account."
+msgstr ""
+
+#: grades/templates/account/email_confirm.html:36
+#, python-format
+msgid ""
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
+msgstr ""
+
+#: grades/templates/account/login.html:19
+#, python-format
+msgid ""
+"If you have not created an account yet, then please %(link)ssign "
+"up%(end_link)s first."
+msgstr ""
+
+#: grades/templates/account/login.html:42
+msgid "Sign in with a passkey"
+msgstr ""
+
+#: grades/templates/account/login.html:47
+#: grades/templates/account/request_login_code.html:9
+msgid "Mail me a sign-in code"
+msgstr ""
+
+#: grades/templates/account/logout.html:4
+#: grades/templates/account/logout.html:8
+#: grades/templates/account/logout.html:21
+#: grades/templates/allauth/layouts/base.html:57
+msgid "Sign Out"
+msgstr ""
+
+#: grades/templates/account/logout.html:11
+msgid "Are you sure you want to sign out?"
+msgstr ""
+
+#: grades/templates/account/messages/cannot_delete_primary_email.txt:2
+#, python-format
+msgid "You cannot remove your primary email address (%(email)s)."
+msgstr ""
+
+#: grades/templates/account/messages/email_confirmation_sent.txt:2
+#, python-format
+msgid "Confirmation email sent to %(email)s."
+msgstr ""
+
+#: grades/templates/account/messages/email_confirmed.txt:2
+#, python-format
+msgid "You have confirmed %(email)s."
+msgstr ""
+
+#: grades/templates/account/messages/email_deleted.txt:2
+#, python-format
+msgid "Removed email address %(email)s."
+msgstr ""
+
+#: grades/templates/account/messages/logged_in.txt:4
+#, python-format
+msgid "Successfully signed in as %(name)s."
+msgstr ""
+
+#: grades/templates/account/messages/logged_out.txt:2
+msgid "You have signed out."
+msgstr ""
+
+#: grades/templates/account/messages/login_code_sent.txt:2
+#, python-format
+msgid "A sign-in code has been mailed to %(email)s."
+msgstr ""
+
+#: grades/templates/account/messages/password_changed.txt:2
+msgid "Password successfully changed."
+msgstr ""
+
+#: grades/templates/account/messages/password_set.txt:2
+msgid "Password successfully set."
+msgstr ""
+
+#: grades/templates/account/messages/primary_email_set.txt:2
+msgid "Primary email address set."
+msgstr ""
+
+#: grades/templates/account/messages/unverified_primary_email.txt:2
+msgid "Your primary email address must be verified."
+msgstr ""
+
+#: grades/templates/account/password_change.html:4
+#: grades/templates/account/password_change.html:8
+#: grades/templates/account/password_change.html:20
+#: grades/templates/account/password_reset_from_key.html:5
+#: grades/templates/account/password_reset_from_key.html:12
+#: grades/templates/account/password_reset_from_key.html:30
+#: grades/templates/account/password_reset_from_key_done.html:5
+#: grades/templates/account/password_reset_from_key_done.html:9
+#: grades/templates/allauth/layouts/base.html:33
+msgid "Change Password"
+msgstr ""
+
+#: grades/templates/account/password_change.html:22
+msgid "Forgot Password?"
+msgstr ""
+
+#: grades/templates/account/password_reset.html:14
+msgid ""
+"Forgotten your password? Enter your email address below, and we'll send you "
+"an email allowing you to reset it."
+msgstr ""
+
+#: grades/templates/account/password_reset.html:25
+msgid "Reset My Password"
+msgstr ""
+
+#: grades/templates/account/password_reset.html:30
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr ""
+
+#: grades/templates/account/password_reset_done.html:16
+msgid ""
+"We have sent you an email. If you have not received it please check your "
+"spam folder. Otherwise contact us if you do not receive it in a few minutes."
+msgstr ""
+
+#: grades/templates/account/password_reset_from_key.html:10
+msgid "Bad Token"
+msgstr ""
+
+#: grades/templates/account/password_reset_from_key.html:18
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+
+#: grades/templates/account/password_reset_from_key_done.html:12
+msgid "Your password is now changed."
+msgstr ""
+
+#: grades/templates/account/password_set.html:5
+#: grades/templates/account/password_set.html:9
+#: grades/templates/account/password_set.html:21
+msgid "Set Password"
+msgstr ""
+
+#: grades/templates/account/reauthenticate.html:6
+msgid "Enter your password:"
+msgstr ""
+
+#: grades/templates/account/request_login_code.html:12
+msgid ""
+"You will receive an email containing a special code for a password-free sign-"
+"in."
+msgstr ""
+
+#: grades/templates/account/request_login_code.html:24
+msgid "Request Code"
+msgstr ""
+
+#: grades/templates/account/request_login_code.html:30
+msgid "Other sign-in options"
+msgstr ""
+
+#: grades/templates/account/signup.html:4
+#: grades/templates/account/signup_by_passkey.html:4
+#: grades/templates/socialaccount/signup.html:5
+msgid "Signup"
+msgstr ""
+
+#: grades/templates/account/signup.html:8
+#: grades/templates/account/signup.html:30
+#: grades/templates/account/signup_by_passkey.html:29
+#: grades/templates/allauth/layouts/base.html:70
+#: grades/templates/socialaccount/signup.html:9
+#: grades/templates/socialaccount/signup.html:25
+msgid "Sign Up"
+msgstr ""
+
+#: grades/templates/account/signup.html:17
+#: grades/templates/account/signup_by_passkey.html:17
+#, python-format
+msgid "Already have an account? Then please %(link)ssign in%(end_link)s."
+msgstr ""
+
+#: grades/templates/account/signup.html:39
+msgid "Sign up using a passkey"
+msgstr ""
+
+#: grades/templates/account/signup_by_passkey.html:8
+msgid "Passkey Sign Up"
+msgstr ""
+
+#: grades/templates/account/signup_by_passkey.html:36
+msgid "Other options"
+msgstr ""
+
+#: grades/templates/account/signup_closed.html:5
+#: grades/templates/account/signup_closed.html:9
+msgid "Sign Up Closed"
+msgstr ""
+
+#: grades/templates/account/signup_closed.html:12
+msgid "We are sorry, but the sign up is currently closed."
+msgstr ""
+
+#: grades/templates/account/snippets/already_logged_in.html:7
+msgid "Note"
+msgstr ""
+
+#: grades/templates/account/snippets/already_logged_in.html:7
+#, python-format
+msgid "You are already logged in as %(user_display)s."
+msgstr ""
+
+#: grades/templates/account/snippets/warn_no_email.html:3
+msgid "Warning:"
+msgstr ""
+
+#: grades/templates/account/snippets/warn_no_email.html:3
+msgid ""
+"You currently do not have any email address set up. You should really add an "
+"email address so you can receive notifications, reset your password, etc."
+msgstr ""
+
+#: grades/templates/account/verification_sent.html:5
+#: grades/templates/account/verification_sent.html:9
+#: grades/templates/account/verified_email_required.html:5
+#: grades/templates/account/verified_email_required.html:9
+msgid "Verify Your Email Address"
+msgstr ""
+
+#: grades/templates/account/verification_sent.html:12
+msgid ""
+"We have sent an email to you for verification. Follow the link provided to "
+"finalize the signup process. If you do not see the verification email in "
+"your main inbox, check your spam folder. Please contact us if you do not "
+"receive the verification email within a few minutes."
+msgstr ""
+
+#: grades/templates/account/verified_email_required.html:13
+msgid ""
+"This part of the site requires us to verify that\n"
+"you are who you claim to be. For this purpose, we require that you\n"
+"verify ownership of your email address. "
+msgstr ""
+
+#: grades/templates/account/verified_email_required.html:18
+msgid ""
+"We have sent an email to you for\n"
+"verification. Please click on the link inside that email. If you do not see "
+"the verification email in your main inbox, check your spam folder. "
+"Otherwise\n"
+"contact us if you do not receive it within a few minutes."
+msgstr ""
+
+#: grades/templates/account/verified_email_required.html:23
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your "
+"email address</a>."
+msgstr ""
+
+#: grades/templates/allauth/layouts/base.html:17
+msgid "MySite"
+msgstr ""
+
+#: grades/templates/allauth/layouts/base.html:39
+#: grades/templates/socialaccount/connections.html:5
+#: grades/templates/socialaccount/connections.html:9
+msgid "Account Connections"
+msgstr ""
+
+#: grades/templates/allauth/layouts/base.html:45
+#: grades/templates/mfa/authenticate.html:10 grades/templates/mfa/index.html:5
+#: grades/templates/mfa/index.html:9
+msgid "Two-Factor Authentication"
+msgstr ""
+
+#: grades/templates/allauth/layouts/base.html:51
+msgid "Sessions"
+msgstr ""
+
+#: grades/templates/allauth/layouts/base.html:82
+msgid "Messages:"
+msgstr ""
+
+#: grades/templates/mfa/authenticate.html:13
+msgid ""
+"Your account is protected by two-factor authentication. Please enter an "
+"authenticator code:"
+msgstr ""
+
+#: grades/templates/mfa/authenticate.html:41
+#: grades/templates/mfa/webauthn/reauthenticate.html:15
+msgid "Use a security key"
+msgstr ""
+
+#: grades/templates/mfa/email/recovery_codes_generated_message.txt:4
+msgid ""
+"A new set of Two-Factor Authentication recovery codes has been generated."
+msgstr ""
+
+#: grades/templates/mfa/email/recovery_codes_generated_subject.txt:3
+msgid "New Recovery Codes Generated"
+msgstr ""
+
+#: grades/templates/mfa/email/totp_activated_message.txt:4
+#: grades/templates/mfa/messages/totp_activated.txt:2
+msgid "Authenticator app activated."
+msgstr ""
+
+#: grades/templates/mfa/email/totp_activated_subject.txt:3
+msgid "Authenticator App Activated"
+msgstr ""
+
+#: grades/templates/mfa/email/totp_deactivated_message.txt:4
+#: grades/templates/mfa/messages/totp_deactivated.txt:2
+msgid "Authenticator app deactivated."
+msgstr ""
+
+#: grades/templates/mfa/email/totp_deactivated_subject.txt:3
+msgid "Authenticator App Deactivated"
+msgstr ""
+
+#: grades/templates/mfa/email/webauthn_added_message.txt:4
+msgid "A new security key has been added."
+msgstr ""
+
+#: grades/templates/mfa/email/webauthn_added_subject.txt:3
+msgid "Security Key Added"
+msgstr ""
+
+#: grades/templates/mfa/email/webauthn_removed_message.txt:4
+msgid "A security key has been removed."
+msgstr ""
+
+#: grades/templates/mfa/email/webauthn_removed_subject.txt:3
+msgid "Security Key Removed"
+msgstr ""
+
+#: grades/templates/mfa/index.html:14 grades/templates/mfa/totp/base.html:4
+msgid "Authenticator App"
+msgstr ""
+
+#: grades/templates/mfa/index.html:19
+msgid "Authentication using an authenticator app is active."
+msgstr ""
+
+#: grades/templates/mfa/index.html:23
+msgid "An authenticator app is not active."
+msgstr ""
+
+#: grades/templates/mfa/index.html:32
+#: grades/templates/mfa/totp/deactivate_form.html:24
+msgid "Deactivate"
+msgstr ""
+
+#: grades/templates/mfa/index.html:36
+#: grades/templates/mfa/totp/activate_form.html:32
+msgid "Activate"
+msgstr ""
+
+#: grades/templates/mfa/index.html:45
+#: grades/templates/mfa/webauthn/authenticator_list.html:8
+#: grades/templates/mfa/webauthn/base.html:4
+msgid "Security Keys"
+msgstr ""
+
+#: grades/templates/mfa/index.html:50
+#, python-format
+msgid "You have added %(count)s security key."
+msgid_plural "You have added %(count)s security keys."
+msgstr[0] ""
+msgstr[1] ""
+
+#: grades/templates/mfa/index.html:54
+#: grades/templates/mfa/webauthn/authenticator_list.html:12
+msgid "No security keys have been added."
+msgstr ""
+
+#: grades/templates/mfa/index.html:62
+msgid "Manage"
+msgstr ""
+
+#: grades/templates/mfa/index.html:67
+#: grades/templates/mfa/webauthn/add_form.html:18
+#: grades/templates/mfa/webauthn/authenticator_list.html:70
+msgid "Add"
+msgstr ""
+
+#: grades/templates/mfa/index.html:77
+#: grades/templates/mfa/recovery_codes/base.html:4
+#: grades/templates/mfa/recovery_codes/generate.html:6
+#: grades/templates/mfa/recovery_codes/index.html:6
+msgid "Recovery Codes"
+msgstr ""
+
+#: grades/templates/mfa/index.html:82
+#: grades/templates/mfa/recovery_codes/index.html:9
+#, python-format
+msgid ""
+"There is %(unused_count)s out of %(total_count)s recovery codes available."
+msgid_plural ""
+"There are %(unused_count)s out of %(total_count)s recovery codes available."
+msgstr[0] ""
+msgstr[1] ""
+
+#: grades/templates/mfa/index.html:86
+msgid "No recovery codes set up."
+msgstr ""
+
+#: grades/templates/mfa/index.html:96
+msgid "View"
+msgstr ""
+
+#: grades/templates/mfa/index.html:102
+msgid "Download"
+msgstr ""
+
+#: grades/templates/mfa/index.html:110
+#: grades/templates/mfa/recovery_codes/generate.html:29
+msgid "Generate"
+msgstr ""
+
+#: grades/templates/mfa/messages/recovery_codes_generated.txt:2
+msgid "A new set of recovery codes has been generated."
+msgstr ""
+
+#: grades/templates/mfa/messages/webauthn_added.txt:2
+msgid "Security key added."
+msgstr ""
+
+#: grades/templates/mfa/messages/webauthn_removed.txt:2
+msgid "Security key removed."
+msgstr ""
+
+#: grades/templates/mfa/reauthenticate.html:6
+msgid "Enter an authenticator code:"
+msgstr ""
+
+#: grades/templates/mfa/recovery_codes/generate.html:9
+msgid "You are about to generate a new set of recovery codes for your account."
+msgstr ""
+
+#: grades/templates/mfa/recovery_codes/generate.html:11
+msgid "This action will invalidate your existing codes."
+msgstr ""
+
+#: grades/templates/mfa/recovery_codes/generate.html:13
+msgid "Are you sure?"
+msgstr ""
+
+#: grades/templates/mfa/recovery_codes/index.html:13
+msgid "Unused codes"
+msgstr ""
+
+#: grades/templates/mfa/recovery_codes/index.html:25
+msgid "Download codes"
+msgstr ""
+
+#: grades/templates/mfa/recovery_codes/index.html:30
+msgid "Generate new codes"
+msgstr ""
+
+#: grades/templates/mfa/totp/activate_form.html:4
+#: grades/templates/mfa/totp/activate_form.html:8
+msgid "Activate Authenticator App"
+msgstr ""
+
+#: grades/templates/mfa/totp/activate_form.html:11
+msgid ""
+"To protect your account with two-factor authentication, scan the QR code "
+"below with your authenticator app. Then, input the verification code "
+"generated by the app below."
+msgstr ""
+
+#: grades/templates/mfa/totp/activate_form.html:21
+msgid "Authenticator secret"
+msgstr ""
+
+#: grades/templates/mfa/totp/activate_form.html:24
+msgid ""
+"You can store this secret and use it to reinstall your authenticator app at "
+"a later time."
+msgstr ""
+
+#: grades/templates/mfa/totp/deactivate_form.html:5
+#: grades/templates/mfa/totp/deactivate_form.html:9
+msgid "Deactivate Authenticator App"
+msgstr ""
+
+#: grades/templates/mfa/totp/deactivate_form.html:12
+msgid ""
+"You are about to deactivate authenticator app based authentication. Are you "
+"sure?"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/add_form.html:7
+msgid "Add Security Key"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/authenticator_confirm_delete.html:6
+msgid "Remove Security Key"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/authenticator_confirm_delete.html:9
+msgid "Are you sure you want to remove this security key?"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/authenticator_list.html:18
+msgid "Key"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/authenticator_list.html:21
+msgid "Usage"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/authenticator_list.html:33
+msgid "Passkey"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/authenticator_list.html:37
+msgid "Security key"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/authenticator_list.html:40
+msgid "This key does not indicate whether it is a passkey."
+msgstr ""
+
+#: grades/templates/mfa/webauthn/authenticator_list.html:41
+msgid "Unspecified"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/authenticator_list.html:46
+#, python-format
+msgid "Added on %(created_at)s"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/authenticator_list.html:48
+#, python-format
+msgid "Last used %(last_used)s"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/authenticator_list.html:56
+msgid "Edit"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/edit_form.html:7
+msgid "Edit Security Key"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/edit_form.html:18
+msgid "Save"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/signup_form.html:7
+msgid "Create Passkey"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/signup_form.html:10
+msgid ""
+"You are about to create a passkey for your account. As you can add "
+"additional keys later on, you can use a descriptive name to tell the keys "
+"apart."
+msgstr ""
+
+#: grades/templates/mfa/webauthn/signup_form.html:21
+msgid "Create"
+msgstr ""
+
+#: grades/templates/mfa/webauthn/snippets/scripts.html:2
+msgid "This functionality requires JavaScript."
+msgstr ""
+
+#: grades/templates/socialaccount/authentication_error.html:5
+#: grades/templates/socialaccount/authentication_error.html:9
+msgid "Third-Party Login Failure"
+msgstr ""
+
+#: grades/templates/socialaccount/authentication_error.html:12
+msgid ""
+"An error occurred while attempting to login via your third-party account."
+msgstr ""
+
+#: grades/templates/socialaccount/connections.html:13
+msgid ""
+"You can sign in to your account using any of the following third-party "
+"accounts:"
+msgstr ""
+"您可以使用以下任何第三方登入您的"
+"帳戶："
+
+#: grades/templates/socialaccount/connections.html:46
+msgid "You currently have no third-party accounts connected to this account."
+msgstr ""
+
+#: grades/templates/socialaccount/connections.html:50
+msgid "Add a Third-Party Account"
+msgstr "新增第三方帳戶"
+
+#: grades/templates/socialaccount/email/account_connected_message.txt:4
+#, python-format
+msgid ""
+"A third-party account from %(provider)s has been connected to your account."
+msgstr ""
+
+#: grades/templates/socialaccount/email/account_connected_subject.txt:3
+msgid "Third-Party Account Connected"
+msgstr ""
+
+#: grades/templates/socialaccount/email/account_disconnected_message.txt:4
+#, python-format
+msgid ""
+"A third-party account from %(provider)s has been disconnected from your "
+"account."
+msgstr ""
+
+#: grades/templates/socialaccount/email/account_disconnected_subject.txt:3
+msgid "Third-Party Account Disconnected"
+msgstr ""
+
+#: grades/templates/socialaccount/login.html:10
+#, python-format
+msgid "Connect %(provider)s"
+msgstr ""
+
+#: grades/templates/socialaccount/login.html:13
+#, python-format
+msgid "You are about to connect a new third-party account from %(provider)s."
+msgstr ""
+
+#: grades/templates/socialaccount/login.html:17
+#, python-format
+msgid "Sign In Via %(provider)s"
+msgstr "使用 %(provider)s 帳號登入"
+
+#: grades/templates/socialaccount/login.html:20
+#, python-format
+msgid "You are about to sign in using a third-party account from %(provider)s."
+msgstr "您即將使用 %(provider)s 帳號中的第三方登入"
+
+#: grades/templates/socialaccount/login.html:27
+#: grades/templates/socialaccount/login_redirect.html:10
+msgid "Continue"
+msgstr "繼續"
+
+#: grades/templates/socialaccount/login_cancelled.html:5
+#: grades/templates/socialaccount/login_cancelled.html:9
+msgid "Login Cancelled"
+msgstr ""
+
+#: grades/templates/socialaccount/login_cancelled.html:13
+#, python-format
+msgid ""
+"You decided to cancel logging in to our site using one of your existing "
+"accounts. If this was a mistake, please proceed to <a "
+"href=\"%(login_url)s\">sign in</a>."
+msgstr ""
+
+#: grades/templates/socialaccount/messages/account_connected.txt:2
+msgid "The third-party account has been connected."
+msgstr ""
+
+#: grades/templates/socialaccount/messages/account_connected_other.txt:2
+msgid "The third-party account is already connected to a different account."
+msgstr ""
+
+#: grades/templates/socialaccount/messages/account_disconnected.txt:2
+msgid "The third-party account has been disconnected."
+msgstr ""
+
+#: grades/templates/socialaccount/signup.html:12
+#, python-format
+msgid ""
+"You are about to use your %(provider_name)s account to login to\n"
+"%(site_name)s. As a final step, please complete the following form:"
+msgstr ""
+
+#: grades/templates/socialaccount/snippets/login.html:10
+msgid "Or use a third-party"
+msgstr "或使用第三方登入"

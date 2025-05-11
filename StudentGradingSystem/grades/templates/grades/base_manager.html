@@ -1,0 +1,114 @@
+<!-- templates/grades/base_manager.html -->
+<!--管理員基本模板-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}管理員頁面{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #f4f4f4;
+            padding: 15px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 8px 12px;
+            display: block;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #e0e0e0;
+        }
+
+        main {
+            flex: 1;
+            padding: 15px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-left: 15px;
+            display: block;
+        }
+
+        /* 確保主要內容的每一行都佔據整行並垂直排列 */
+        .content-item {
+            display: block;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+
+        header, footer {
+            background-color: #ccc;
+            text-align: center;
+            padding: 10px;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>管理員頁面</h1>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="{% url 'student_management' %}">學生資料管理</a></li>
+                <li><a href="{% url 'teacher_management' %}">教師資料管理</a></li>
+                <li><a href="{% url 'index' %}">返回首頁</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            {% block content %}
+            <!-- 使用 content-item 類來控制每一行的內容顯示 -->
+            <div class="content-item">這是第一行內容</div>
+            <div class="content-item">這是第二行內容</div>
+            <div class="content-item">這是第三行內容</div>
+            {% endblock %}
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Rui Xiang Chen 保留所有權利</p>
+    </footer>
+</body>
+</html>

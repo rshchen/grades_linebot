@@ -1,0 +1,67 @@
+<!-- grades/student_management.html -->
+<!--學生資料管理-->
+{% extends 'grades/base_manager.html' %}
+
+{% block title %}學生資料管理{% endblock %}
+
+{% block content %}
+    <h2>{{ message }}</h2>
+
+    {% if is_manager %}
+        <p>這裡可以進行學生資料管理的操作。</p>
+
+        <div>
+            <h3>批次匯入學生資料 (CSV 格式)</h3>
+            <form method="POST" enctype="multipart/form-data" id="csv-upload-form">
+                {% csrf_token %}
+                <label for="csv_file">選擇 CSV 檔案:</label>
+                <input type="file" id="csv_file" name="csv_file" accept=".csv" required>
+                <br><br>
+                <input type="submit" value="上傳 CSV">
+            </form>
+            <p>CSV格式：班級名稱, 座號, 學號, 姓名, 學生信箱</p>
+        </div>
+
+        <!-- 顯示學生資料的表格 -->
+        <h3>學生資料列表</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>班級</th>
+                    <th>座號</th>
+                    <th>學號</th>
+                    <th>姓名</th>
+                    <th>學生信箱</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                    <tr>
+                        <td>{{ student.class_name }}</td>
+                        <td>{{ student.seat_number }}</td>
+                        <td>{{ student.student_id }}</td>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.student_email }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="6">沒有學生資料。</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- 成功或錯誤訊息顯示 -->
+        {% if messages %}
+            <div class="mt-4">
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% else %}
+        <p>無法訪問學生資料管理頁面。</p>
+    {% endif %}
+{% endblock %}

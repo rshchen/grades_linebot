@@ -1,0 +1,21 @@
+<!-- templates/grades/create_course.html -->
+<!--創建課程頁面-->
+{% extends 'grades/base_teacher.html' %}
+
+{% block title %}創建課程{% endblock %}
+
+{% block content %}
+
+    <h2>創建新課程</h2>
+    <form method="post" enctype="multipart/form-data" id="csv-upload-form">
+        {% csrf_token %}
+        
+        <label for="id_course_name">課程名稱:</label>
+        <input type="text" id="id_course_name" name="course_name" required>
+        <br><br>
+
+        <input type="submit" value="提交">
+    </form>
+
+{% endblock %}
+

@@ -1,1 +1,4 @@
 .DS_Store
+.env
+db.sqlite3
+django_debug.log

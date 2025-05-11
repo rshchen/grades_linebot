@@ -1,0 +1,59 @@
+<!--課程成績管理頁面-->
+{% extends 'grades/base_teacher.html' %}
+
+{% block title %}課程成績管理頁面{% endblock %}
+
+{% block content %}
+    <h2>課程成績管理頁面: {{ course.name }}</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">新增成績項目</button>
+    </form>
+
+    <!-- 新增篩選類別的下拉選單 -->
+    <form method="get">
+        <label for="category-filter">篩選類別:</label>
+        <select name="category" id="category-filter" class="form-control" onchange="this.form.submit()">
+            <option value="">所有類別</option>
+            {% for category_value, category_label in category_choices %}
+                <option value="{{ category_value }}" {% if selected_category == category_value %}selected{% endif %}>
+                    {{ category_label }}
+                </option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <!-- 現有成績項目表格 -->
+    <h3>現有成績項目</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>成績項目名稱</th>
+                <th>類型</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for grade_item in grade_items %}
+                <tr>
+                    <td>{{ grade_item.name }}</td>
+                    <td>{{ grade_item.get_category_display }}</td>
+                    <td>
+                        <a href="{% url 'edit_grade_item' course.id grade_item.id %}" class="btn btn-warning">編輯項目名稱</a>
+                        <a href="{% url 'delete_grade_item' course.id grade_item.id %}" class="btn btn-danger" onclick="return confirm('確定刪除嗎？')">刪除項目</a>
+                        <a href="{% url 'manage_student_grades' course.id grade_item.id %}" class="btn btn-info">管理項目成績</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">無成績項目</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'course_list' %}" class="btn btn-secondary">返回課程列表</a>
+
+{% endblock %}
