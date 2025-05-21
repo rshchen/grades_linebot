@@ -748,7 +748,7 @@ def handle_message(event):
             otp_record = OTPVerification.objects.get(line_user_id=user_id, otp=message_text)
             # 驗證成功，綁定 line_user_id 和 student_email
             student = Student.objects.get(student_email=otp_record.email)
-            student.line_user_id = user_id  # 更新 line_user_id 綁定
+            student.line_user_id = user_id  # 更新 line_user_id 綁定（因此只能在一部裝置上使用，會取消其他裝置的綁定）
             student.save()
             reply_text = f"恭喜恭喜！驗證成功，「{student.name}」同學的帳戶已經綁定！"
         except OTPVerification.DoesNotExist:
