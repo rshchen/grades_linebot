@@ -616,6 +616,17 @@ from datetime import timedelta
 
 from django.views.decorators.http import require_POST
 
+# 定義白名單的 email 地址
+# 這些 email 地址將被允許略過 OTP 認證
+WHITELISTED_EMAILS = [
+    "student1@school.edu.tw",
+    "student2@school.edu.tw",
+    "test@example.com",
+    "sea810749@gmail.com",
+    "juihsiangchen3@gmail.com"
+]
+
+
 # 使用 decouple 讀取環境變數
 line_bot_api = LineBotApi(config('LINE_CHANNEL_ACCESS_TOKEN'))
 handler = WebhookHandler(config('LINE_CHANNEL_SECRET'))
@@ -714,6 +725,14 @@ def handle_message(event):
         # 如果使用者輸入的是電子郵件地址，查找該 email 是否在 Student 資料表中
         try:
             student = Student.objects.get(student_email=message_text)  # 使用 student_email 欄位查詢
+            # 檢查該 email 是否在白名單中
+            if message_text in WHITELISTED_EMAILS:
+                # 白名單：直接綁定，不發 OTP
+                student.line_user_id = user_id
+                student.save()
+                reply_text = f"已成功直接綁定，「{student.name}」同學的帳戶已啟用！"
+
+
             # 獲取最近的 OTP 紀錄
             try:
                 otp_record = OTPVerification.objects.get(line_user_id=user_id)  # 使用 line_user_id 查詢
