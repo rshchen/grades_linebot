@@ -62,6 +62,7 @@ Manager.objects.all()
 這樣應該會返回包含你剛剛創建的 `Manager` 資料的查詢集。
 
 如此一來，當您以管理員身份進入系統時，會看到這樣的畫面
+![截圖](github_images/p1.png)
 ![image](https://hackmd.io/_uploads/ryQc-22Zxx.png =70%x)
 
 進入學生資料管理頁面，上傳學生資料csv檔案（檔案格式請參考「管理員匯入資料」 > 「學生資料.csv」）
