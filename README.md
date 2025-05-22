@@ -16,7 +16,7 @@ LINE_CHANNEL_ACCESS_TOKEN = '請替換為你的 LINE Channel Access Token'
 LINE_CHANNEL_SECRET = '請替換為你的 LINE Channel Secret'
 ```
 當然還需處理Google Oauth, email host, line channel申請等項目問題，
-並到setting.py的地方修改line hook對應的網址。
+並到setting.py的地方修改line webhook對應的網址。
 
 
 ## 系統使用說明
