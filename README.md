@@ -110,7 +110,7 @@ Manager.objects.all()
 1. 請學生加入linebot，這裡有試用者可使用的linebot
 <img src="github_images/p1.png" width="50%">
 2. 請點擊右下的「身份驗證」按鈕
-<img src="github_images/p18.png" width="40%">
+<img src="github_images/p18.jpeg" width="40%">
 3. 請輸入學校信箱（試用者請輸入juihsiangchen3@gmail.com）。
 4. 系統會傳送驗證碼到學校信箱，若沒收到，請確認
 (1)信箱填寫正確
