@@ -726,33 +726,34 @@ def handle_message(event):
         try:
             student = Student.objects.get(student_email=message_text)  # 使用 student_email 欄位查詢
             # 檢查該 email 是否在白名單中
-            if message_text in WHITELISTED_EMAILS:
+            if message_text in [email.lower() for email in WHITELISTED_EMAILS]:
                 # 白名單：直接綁定，不發 OTP
                 student.line_user_id = user_id
                 student.save()
                 reply_text = f"已成功直接綁定，「{student.name}」同學的帳戶已啟用！"
 
+            else:
+                # 非白名單：需要 OTP 驗證
+                # 獲取最近的 OTP 紀錄
+                try:
+                    otp_record = OTPVerification.objects.get(line_user_id=user_id)  # 使用 line_user_id 查詢
+                    time_since_last_otp = timezone.now() - otp_record.created_at
 
-            # 獲取最近的 OTP 紀錄
-            try:
-                otp_record = OTPVerification.objects.get(line_user_id=user_id)  # 使用 line_user_id 查詢
-                time_since_last_otp = timezone.now() - otp_record.created_at
-
-                if time_since_last_otp < timedelta(seconds=30):
-                    reply_text = "請在 30 秒後再請求新的驗證碼。"
-                else:
-                    # 如果找到該 email，生成 OTP 並發送到該 email
+                    if time_since_last_otp < timedelta(seconds=30):
+                        reply_text = "請在 30 秒後再請求新的驗證碼。"
+                    else:
+                        # 如果找到該 email，生成 OTP 並發送到該 email
+                        otp = generate_otp()  # 生成 OTP
+                        save_otp(user_id, message_text, otp)  # 儲存或更新 OTP 到資料庫
+                        send_otp_to_email(message_text, otp)  # 發送 OTP 到 email
+                        reply_text = "已發送驗證碼到您的電子郵件，請輸入驗證碼。"
+                
+                except OTPVerification.DoesNotExist:
+                    # 如果沒有找到 OTP 紀錄，則直接生成並發送 OTP
                     otp = generate_otp()  # 生成 OTP
                     save_otp(user_id, message_text, otp)  # 儲存或更新 OTP 到資料庫
                     send_otp_to_email(message_text, otp)  # 發送 OTP 到 email
                     reply_text = "已發送驗證碼到您的電子郵件，請輸入驗證碼。"
-            
-            except OTPVerification.DoesNotExist:
-                # 如果沒有找到 OTP 紀錄，則直接生成並發送 OTP
-                otp = generate_otp()  # 生成 OTP
-                save_otp(user_id, message_text, otp)  # 儲存或更新 OTP 到資料庫
-                send_otp_to_email(message_text, otp)  # 發送 OTP 到 email
-                reply_text = "已發送驗證碼到您的電子郵件，請輸入驗證碼。"
 
         except Student.DoesNotExist:
             # 如果該 email 不存在於 Student 資料表中
