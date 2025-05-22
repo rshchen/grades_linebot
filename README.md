@@ -20,9 +20,9 @@ LINE_CHANNEL_SECRET = '請替換為你的 LINE Channel Secret'
 
 
 ## 系統使用說明
-試用人員請使用此帳號加密碼登入（此帳號無法以第三方方式登入）：
-帳號：juihsiangchen3@gmail.com
-密碼：ej03xu3m06
+試用人員請使用此帳號加密碼登入（此帳號無法以第三方方式登入）：<br>
+帳號：juihsiangchen3@gmail.com<br>
+密碼：ej03xu3m06<br>
 此帳號登入後會具有教師身份（葬送的芙莉蓮老師）與學生身份（費倫同學）（此帳號不具備管理員身份）
 ## 管理員使用說明
 若您為開發者，可以經由以下步驟加入管理員身份：
@@ -108,10 +108,10 @@ Manager.objects.all()
 
 ## 學生使用說明
 1. 請學生加入linebot，這裡有試用者可使用的linebot
-    <img src="github_images/p17.png">
+    <img src="github_images/p17.png" width="50%">
     
 2. 請點擊右下的「身份驗證」按鈕<br>
-    <img src="github_images/p18.jpeg">
+    <img src="github_images/p18.jpeg" width="40%">
     
 3. 請輸入學校信箱（試用者請輸入juihsiangchen3@gmail.com）。
 4. 系統會傳送驗證碼到學校信箱，若沒收到，請確認(1)信箱填寫正確(2)是否被當成垃圾信件。（試用者會直接綁定系統）
