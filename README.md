@@ -108,7 +108,7 @@ Manager.objects.all()
 
 ## 學生使用說明
 1. 請學生加入linebot，這裡有試用者可使用的linebot
-    <img src="github_images/p1.png" width="50%">
+    <img src="github_images/p17.png" width="50%">
     
 2. 請點擊右下的「身份驗證」按鈕<br>
     <img src="github_images/p18.jpeg" width="40%">
