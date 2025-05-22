@@ -62,15 +62,15 @@ Manager.objects.all()
 這樣應該會返回包含你剛剛創建的 `Manager` 資料的查詢集。
 
 如此一來，當您以管理員身份進入系統時，會看到這樣的畫面
-<img src="github_images/p1.png" width="70%">
+<img src="github_images/p1.png">
 
 
 
 進入學生資料管理頁面，上傳學生資料csv檔案（檔案格式請參考「管理員匯入資料」 > 「學生資料.csv」）
-<img src="github_images/p2.png" width="70%">
+<img src="github_images/p2.png">
  
 進入教師資料管理頁面，上傳教師資料csv檔案（檔案格式請參考「管理員匯入資料」 > 「教師資料.csv」）
-<img src="github_images/p3.png" width="70%">
+<img src="github_images/p3.png">
 
 
 
@@ -79,39 +79,39 @@ Manager.objects.all()
 ## 教師使用說明
 1. 先請管理員開通教師權限。
 2. 開通身份後可以按首頁中的教師按鈕以登入系統。
-<img src="github_images/p4.png" width="70%">
+<img src="github_images/p4.png">
 3. 進入登入畫面，可以使用google第三方登入較為方便，就不需要再進行註冊了（試用人員無法以該帳號使用google第三方登入）。
-<img src="github_images/p5.png" width="70%">
+<img src="github_images/p5.png">
 4. 登入後點選左側創建課程。
-<img src="github_images/p6.png" width="70%">
+<img src="github_images/p6.png">
 5. 輸入課程名稱並提交。
-<img src="github_images/p7.png" width="70%">
+<img src="github_images/p7.png">
 6. 提交後會自動進入左側的「您的課程」頁面，之後可以直接在此頁面找到您所創建的課程。
-<img src="github_images/p8.png" width="70%">
+<img src="github_images/p8.png">
 7. 點擊「編輯課程學生名單」按鈕。
-<img src="github_images/p9.png" width="70%">
+<img src="github_images/p9.png">
 8. 從下拉選單當中找到您的學生，勾選後按「更新學生成員」，如果學生是跑班也可以使用。（本來會直接顯示學生名單在頁面上，但不小心把這個功能改掉了，之後再改回來）
-<img src="github_images/p10.png" width="70%">
+<img src="github_images/p10.png">
 9. 回到您的課程後（可以拖曳方式改變課程順序），點選「顯示課程學生名單」可以確認學生名單。
-<img src="github_images/p11.png" width="70%">
+<img src="github_images/p11.png">
 10. 點選「管理課程成績」按鈕
-<img src="github_images/p12.png" width="70%">
+<img src="github_images/p12.png">
 11. 輸入要新增的成績項目和類別，點擊「新增成績項目」按鈕。
-<img src="github_images/p13.png" width="70%">
+<img src="github_images/p13.png">
 12. 成績匯入方面，本系統提供excel匯入，或是直接輸入。
 13. 直接輸入成績：請點擊「管理項目成績」按鈕。
-<img src="github_images/p14.png" width="70%">
+<img src="github_images/p14.png">
 14. 直接複製excel一整行（沒有分數的要空一行）的成績到網頁中間的框框當中，並點擊「保存成績」按鈕，立刻會顯示學生成績，若要修改成績再利用下方的表格修改成績。
-<img src="github_images/p15.png" width="70%">
+<img src="github_images/p15.png">
 15. 使用excel匯入成績：請先點擊「匯出成績到excel」按鈕，利用匯出後的檔案格式，填入您的該項目成績，之後再利用下方的「選擇檔案」和「匯入成績」按鈕上傳檔案。
-<img src="github_images/p16.png" width="70%">
+<img src="github_images/p16.png">
 
 ## 學生使用說明
 1. 請學生加入linebot，這裡有試用者可使用的linebot
-    <img src="github_images/p17.png" width="50%">
+    <img src="github_images/p17.png">
     
 2. 請點擊右下的「身份驗證」按鈕<br>
-    <img src="github_images/p18.jpeg" width="40%">
+    <img src="github_images/p18.jpeg">
     
 3. 請輸入學校信箱（試用者請輸入juihsiangchen3@gmail.com）。
 4. 系統會傳送驗證碼到學校信箱，若沒收到，請確認(1)信箱填寫正確(2)是否被當成垃圾信件。（試用者會直接綁定系統）
