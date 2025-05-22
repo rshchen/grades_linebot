@@ -96,7 +96,7 @@ Manager.objects.all()
 <img src="github_images/p11.png">
 10. 點選「管理課程成績」按鈕
 <img src="github_images/p12.png">
-11. 輸入要新增的成績項目和類別，點擊「新增成績項目」按鈕。
+11. 輸入要新增的成績項目和類別，點擊「新增成績項目」按鈕（可以拖曳的方式改變成績項目順序）。
 <img src="github_images/p13.png">
 12. 成績匯入方面，本系統提供excel匯入，或是直接輸入。
 13. 直接輸入成績：請點擊「管理項目成績」按鈕。
