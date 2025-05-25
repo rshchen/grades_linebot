@@ -6,11 +6,33 @@
 {% block content %}
     <h2>課程成績管理頁面: {{ course.name }}</h2>
 
-    <form method="post">
+    <br>
+    <h3>新增成績項目</h3>
+    {% if messages %}
+    <div>
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div class="alert alert-danger">
+            {% else %}
+                <div class="alert alert-{{ message.tags }}">
+            {% endif %}
+                    {{ message }}
+                </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+
+
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">新增成績項目</button>
+        <button type="submit" name="add_grade_item" class="btn btn-primary">新增成績項目</button>
     </form>
+
+    <br>
+    <!-- 現有成績項目表格 -->
+    <h3>現有成績項目</h3>
 
     <!-- 新增篩選類別的下拉選單 -->
     <form method="get">
@@ -24,9 +46,7 @@
             {% endfor %}
         </select>
     </form>
-
-    <!-- 現有成績項目表格 -->
-    <h3>現有成績項目</h3>
+    <br>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -35,9 +55,9 @@
                 <th>操作</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="sortable-grade-items">
             {% for grade_item in grade_items %}
-                <tr>
+                <tr data-id="{{ grade_item.id }}">
                     <td>{{ grade_item.name }}</td>
                     <td>{{ grade_item.get_category_display }}</td>
                     <td>
@@ -54,6 +74,46 @@
         </tbody>
     </table>
 
+    <!-- 匯出Excel按鈕 -->
+    <form method="get">
+        <label for="excel_file">匯出成績到Excel:</label>
+        <br>
+        <button type="submit" name="export" class="btn btn-success">匯出成績到Excel</button>
+    </form>
+
+    <br>
+    <!-- 匯入Excel表單 -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="excel_file">匯入成績:</label>
+        <input type="file" name="excel_file" id="excel_file" class="form-control">
+        <button type="submit" name="import" class="btn btn-info">匯入成績</button>
+    </form>
+
+    <br>
     <a href="{% url 'course_list' %}" class="btn btn-secondary">返回課程列表</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var el = document.getElementById('sortable-grade-items');
+            var sortable = Sortable.create(el, {
+                onEnd: function (evt) {
+                    var order = [];
+                    el.querySelectorAll('tr').forEach(function (row) {
+                        order.push(row.getAttribute('data-id'));
+                    });
+
+                    fetch("{% url 'update_grade_item_order' %}", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': '{{ csrf_token }}'
+                        },
+                        body: JSON.stringify({ order: order })
+                    });
+                }
+            });
+        });
+    </script>
 
 {% endblock %}

@@ -5,29 +5,29 @@
 
 {% block content %}
 
-        <h2> {{ teacher.name }}老師的課程</h2>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>課程名稱</th>
-                    <th>操作</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for course in courses %}
-                    <tr>
-                        <td>{{ course.name }}</td>
-                        <td>
-                            <a href="{% url 'edit_course_name' course.id %}" class="btn btn-warning">編輯課程名稱</a>
-                            <a href="{% url 'edit_course_students' course.id %}" class="btn btn-info">編輯課程學生名單</a>
-                            <a href="{% url 'show_course_members' course.id %}" class="btn btn-success">顯示課程學生名單</a>
-                            <a href="{% url 'manage_grades' course.id %}" class="btn btn-primary">管理課程成績</a>
-                            <a href="{% url 'delete_course' course.id %}" class="btn btn-danger">刪除課程</a>
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+<h2> {{ teacher.name }}老師的課程</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>課程名稱</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody id="sortable-courses">
+        {% for course in courses %}
+            <tr class="course-item" data-id="{{ course.id }}">
+                <td>{{ course.name }}</td>
+                <td>
+                    <a href="{% url 'edit_course_name' course.id %}" class="btn btn-warning">編輯課程名稱</a>
+                    <a href="{% url 'edit_course_students' course.id %}" class="btn btn-info">編輯課程學生名單</a>
+                    <a href="{% url 'show_course_members' course.id %}" class="btn btn-success">顯示課程學生名單</a>
+                    <a href="{% url 'manage_grades' course.id %}" class="btn btn-primary">管理課程成績</a>
+                    <a href="{% url 'delete_course' course.id %}" class="btn btn-danger">刪除課程</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 <br>
 {% if messages %}
     <div>
@@ -38,4 +38,38 @@
         {% endfor %}
     </div>
 {% endif %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var el = document.getElementById('sortable-courses');
+        var sortable = Sortable.create(el, {
+            onEnd: function (evt) {
+                var order = [];
+                el.querySelectorAll('tr').forEach(function (row) {
+                    order.push(row.getAttribute('data-id'));
+                });
+
+                fetch("{% url 'update_course_order' %}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify({ order: order })
+                });
+            }
+        });
+    });
+</script>
+
+<style>
+    .course-item {
+        transition: box-shadow 0.3s ease;
+    }
+
+    .course-item:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
 {% endblock %}
