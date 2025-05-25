@@ -28,5 +28,7 @@ urlpatterns = [
     path('edit_student_grade/<int:grade_item_id>/<int:student_id>/', views.edit_student_grade, name='edit_student_grade'),
     
     path('line-webhook/', views.line_webhook, name='line_webhook'),  # Webhook 路徑
+    path('update_course_order/', views.update_course_order, name='update_course_order'), # 更新課程順序
+    path('update_grade_item_order/', views.update_grade_item_order, name='update_grade_item_order'), # 更新成績項目順序
 
 ]

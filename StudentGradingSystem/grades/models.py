@@ -40,6 +40,10 @@ class Course(models.Model):
     name = models.CharField(max_length=100)  # 課程名稱
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)  # 課程的老師
     students = models.ManyToManyField(Student, blank=True)  # 課程的學生，可以為空
+    order = models.IntegerField(default=0)  # 課程的順序
+
+    class Meta:
+        ordering = ['order']
 
     def __str__(self):
         return self.name
@@ -71,7 +75,12 @@ class GradeItem(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)  # 關聯到課程
     class_name = models.CharField(max_length=50)  # 班級名稱
     category = models.CharField(max_length=30, choices=GRADE_CATEGORY_CHOICES)  # 成績類型
+    order = models.PositiveIntegerField(default=0)  # 成績項目的順序
 
+    class Meta:
+        ordering = ['order']
+        unique_together = ('name', 'course')  # 確保每個課程中的成績項目名稱是唯一的
+        
     def __str__(self):
         return f"{self.name} - {self.category} ({self.class_name}, {self.course})"
 
@@ -79,10 +88,12 @@ class GradeItem(models.Model):
 class Grade(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)  # 關聯到學生
     grade_item = models.ForeignKey(GradeItem, on_delete=models.CASCADE)  # 關聯到成績項目
-    grade = models.DecimalField(max_digits=5, decimal_places=1, default=0)  # 成績
+    grade = models.DecimalField(max_digits=5, decimal_places=1, null=True, blank=True)  # 成績
     
     def __str__(self):
         return f"{self.student.name} - {self.grade_item.name} ({self.grade_item.category}): {self.grade}"
+
+
 
 # OTP 資料庫
 class OTPVerification(models.Model):

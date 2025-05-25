@@ -51,28 +51,6 @@
     <input type="submit" value="更新學生成員" class="btn btn-primary">
 </form>
 
-<hr>
-<h3>目前課程學生名單</h3>
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>座號</th>
-            <th>姓名</th>
-            <th>班級</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for student in course.students.all %}
-        <tr>
-            <td>{{ student.seat_number }}</td>
-            <td>{{ student.name }}</td>
-            <td>{{ student.class_name }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
-
 <!-- JavaScript -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
