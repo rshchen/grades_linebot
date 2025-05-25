@@ -9,8 +9,10 @@ django-allauth = "*"
 requests = "*"
 jwt = "*"
 python-decouple = "*"
-pyjwt = "==1.7.1"
+pyjwt = "*"
 line-bot-sdk = "*"
+pandas = "*"
+openpyxl = "*"
 
 [dev-packages]
 
